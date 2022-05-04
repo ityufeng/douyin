@@ -1,0 +1,85 @@
+{
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/tabbar/video/video",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/tabbar/friend/friend",
+      "style": {
+        "navigationBarTitleText": "朋友",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/tabbar/release/release",
+      "style": {
+        "navigationBarTitleText": "发布",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/tabbar/message/message",
+      "style": {
+        "navigationBarTitleText": "消息",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/tabbar/me/me",
+      "style": {
+        "navigationBarTitleText": "我",
+        "enablePullDownRefresh": false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "简抖音",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#131313",
+    "color": "#8F8F94",
+    "selectedColor": "#eee",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/video/video",
+        "iconPath": "static/tabbar/tabbar1.png",
+				"selectedIconPath": "static/tabbar/tabbar1-select.png",
+				"text": "首页"
+      },
+      {
+        "pagePath": "pages/tabbar/friend/friend",
+        "iconPath": "static/tabbar/tabbar2.png",
+				"selectedIconPath": "static/tabbar/tabbar2-select.png",
+				"text": "朋友"
+      },
+      {
+        "pagePath": "pages/tabbar/release/release",
+        "iconPath": "static/tabbar/tabbar3.png",
+				"selectedIconPath": "static/tabbar/tabbar3-select.png",
+				"text": "发布"
+      },
+      {
+        "pagePath": "pages/tabbar/message/message",
+        "iconPath": "static/tabbar/tabbar4.png",
+				"selectedIconPath": "static/tabbar/tabbar4-select.png",
+				"text": "消息"
+      },
+      {
+        "pagePath": "pages/tabbar/me/me",
+        "iconPath": "static/tabbar/tabbar5.png",
+				"selectedIconPath": "static/tabbar/tabbar5-select.png",
+				"text": "我"
+      }
+    ]
+  }
+}
