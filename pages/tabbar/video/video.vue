@@ -1,7 +1,7 @@
 <template>
   <view class="video-tabbar">
 		<!-- 这里是状态栏 -->
-		<view class="status_bar"></view>
+		<!-- <view class="status_bar"></view> -->
 		<view class="vdo-content">
 			<view class="vdo-title">
 				<view 
@@ -53,7 +53,7 @@ export default {
 		height: 100%;
 		.vdo-title {
 			position: absolute;
-			top: 30rpx;
+			top: 60rpx;
 			width: 100%;
 			color: $greyColor;
 			display: flex;

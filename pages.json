@@ -12,6 +12,7 @@
     {
       "path": "pages/tabbar/friend/friend",
       "style": {
+        "navigationStyle": "custom",
         "navigationBarTitleText": "朋友",
         "enablePullDownRefresh": false
       }
