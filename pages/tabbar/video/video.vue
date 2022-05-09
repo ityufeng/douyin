@@ -13,13 +13,18 @@
 			</view>
     	<DySwiper></DySwiper>
 		</view>
+		<view class="loading-box">
+			<loading></loading>
+		</view>
   </view>
 </template>
 
 <script>
+import Loading from '../../../components/loading/loading'
 import DySwiper from '../../../components/dySwiper/dySwiper'
 export default {
-  components: { DySwiper },
+  components: {
+    Loading, DySwiper },
   data() {
     return {
 			titleList: ['同城', '关注', '推荐']
@@ -70,6 +75,13 @@ export default {
 				}
 			}
 		}
+	}
+	.loading-box {
+		position: fixed;
+		top: 50%;
+		width: 100%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 </style>

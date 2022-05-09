@@ -2,11 +2,24 @@ import App from './App'
 
 // #ifndef VUE3
 import Vue from 'vue'
+import store from './store'
 import './api/api.js'
+import loading from './components/loading/loading.vue'
+Vue.component('loading', loading)
+
+Vue.prototype.$loading = (status) => {
+  if (status) {
+    store.commit('changeLoading', status)
+  } else {
+    store.commit('changeLoading')
+  }
+}
+
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({
-    ...App
+  store,
+  ...App
 })
 app.$mount()
 // #endif

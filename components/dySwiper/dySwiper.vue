@@ -33,7 +33,7 @@
         </view>
         <view class="descript-box">
           <view class="creator-name">@{{item.creator.nickname}}</view>
-          <scroll-view class="description" scroll-y @touchstart="touchS" @touchend="touchE">
+          <scroll-view class="description" scroll-y :show-scrollbar="false" @touchstart="touchS" @touchend="touchE">
             <text class="descript" v-if="item.description">{{item.description}}</text>
             <text class="tag" v-for="(tag, tagIndex) in item.tag" :key="tagIndex">
               {{tag}}
@@ -51,15 +51,15 @@
           </view>
           <view class="icon" @click="tip">
             <view class="iconfont icon-aixin"></view>
-            <view class="num">{{item.likeCount}}</view>
+            <view class="num">{{item.likeCount | formatCount}}</view>
           </view>
           <view class="icon" @click="tip">
             <view class="iconfont icon-xiaoxizhongxin"></view>
-            <view class="num">{{item.commentCount}}</view>
+            <view class="num">{{item.commentCount | formatCount}}</view>
           </view>
           <view class="icon" @click="tip">
             <view class="iconfont icon-fenxiangzhuanfa"></view>
-            <view class="num">{{item.shareCount}}</view>
+            <view class="num">{{item.shareCount | formatCount}}</view>
           </view>
         </view>
         <view class="iconfont icon-bofang" v-if="!playing" @tap="togglePlay"></view>
@@ -80,8 +80,8 @@ export default {
   name: "dySwiper",
   data() {
     return {
-      test: false,
-      // test: true,
+      // test: false,
+      test: true,
       vdoList: [],
       // 当前停留的轮播下标
       currentIndex: 0,
@@ -114,6 +114,15 @@ export default {
   },
   created() {
     this.getVdoData();
+  },
+  filters: {
+    formatCount(val) {
+      if(val>10000) {
+        return (val / 10000).toFixed(1) + 'w'
+      } else {
+        return val
+      }
+    }
   },
   methods: {
     swiperChange(e) {
@@ -183,9 +192,10 @@ export default {
     async getVdoData() {
       try {
         this.loading = true;
-        uni.showLoading({
-          title: "加载中",
-        });
+        this.$loading(this.loading)
+        // uni.showLoading({
+        //   title: "加载中",
+        // });
         let res = null;
         if (this.test) {
           console.log('用旧的数据')
@@ -242,22 +252,34 @@ export default {
                 this.updateVdo();
                 this.currentVdo.play();
                 this.isFirst = !this.isFirst;
+                // #ifdef H5
+                  uni.showModal({
+                    title: "限制!",
+                    content: "浏览器限制! 首次播放需要点击!",
+                    success: res => {
+                      this.currentVdo.play()
+                    }
+                  })
+                // #endif
               });
             }
           } else {
-            // TODO: 修改为 Mv , 弹窗只能一次, 设置个标记变量
             uni.showModal({
               title: "获取失败!",
-              content: "因为服务器限制! 暂时无法获取更多视频! 将改为播放网易云MV!",
+              content: "因为服务器限制! 暂时无法获取更多视频!",
             });
           }
         }
       } catch (error) {
-        uni.hideLoading();
-        this.loading = false;
+        setTimeout(()=> {
+          this.loading = false;
+          this.$loading(this.loading)
+        }, 500)
       } finally {
-        uni.hideLoading();
-        this.loading = false;
+        setTimeout(()=> {
+          this.loading = false;
+          this.$loading(this.loading)
+        }, 500)
       }
     },
   },
@@ -297,6 +319,7 @@ export default {
         font-weight: bold;
       }
       .description {
+        &::-webkit-scrollbar { width: 0px !important; }
         overflow-y: auto;
         max-height: 200rpx;
         color: #f1efef;
