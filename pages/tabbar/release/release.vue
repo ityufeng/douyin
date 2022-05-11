@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="release-tabbar">
 		<view class="status_bar"> <!-- 这里是状态栏 --> </view>
 		tabbar3
 	</view>

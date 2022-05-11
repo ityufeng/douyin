@@ -28,21 +28,23 @@
       "path": "pages/tabbar/message/message",
       "style": {
         "navigationBarTitleText": "消息",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#161824"
       }
     },
     {
       "path": "pages/tabbar/me/me",
       "style": {
+        "navigationStyle": "custom",
         "navigationBarTitleText": "我",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#161824"
       }
     }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "简抖音",
-    "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8",
     "pageOrientation": "auto"
   },

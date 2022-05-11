@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3378317 */
-  src: url('//at.alicdn.com/t/font_3378317_blsvhsjhe76.woff2?t=1651941191541') format('woff2'),
-       url('//at.alicdn.com/t/font_3378317_blsvhsjhe76.woff?t=1651941191541') format('woff'),
-       url('//at.alicdn.com/t/font_3378317_blsvhsjhe76.ttf?t=1651941191541') format('truetype');
+  src: url('//at.alicdn.com/t/font_3378317_cknh37u5wej.woff2?t=1652284689799') format('woff2'),
+       url('//at.alicdn.com/t/font_3378317_cknh37u5wej.woff?t=1652284689799') format('woff'),
+       url('//at.alicdn.com/t/font_3378317_cknh37u5wej.ttf?t=1652284689799') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zengjia1:before {
+  content: "\e6ea";
+}
+
+.icon-gouwuche:before {
+  content: "\e73d";
+}
+
+.icon-bianji:before {
+  content: "\e663";
+}
+
+.icon-xiangce:before {
+  content: "\e612";
+}
+
+.icon-tianjiahaoyou:before {
+  content: "\e629";
 }
 
 .icon-bofang:before {

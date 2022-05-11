@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 page {
   height: 100%;
 }
@@ -8,4 +10,9 @@ page {
 image {
   will-change: transform;
   height: auto;
+}
+
+.video-tabbar, .friend-tabbar, .release-tabbar, .message-tabbar, .me-tabbar {
+  min-height: 100%;
+  background-color: $blackBg;
 }

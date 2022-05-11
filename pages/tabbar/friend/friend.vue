@@ -1,43 +1,85 @@
 <template>
   <view class="friend-tabbar">
-      <!-- object-fit="cover" -->
-    <video
-      id="vdo"
-      class="fullH"
-      src="http://vodkgeyttp9.vod.126.net/vodkgeyttp8/9qZRMGMr_1981362519_hd.mp4?ts=1651845599&rid=A3E2E2A6C9D45E7C4C8584B6AD5A3875&rl=3&rs=qodeDLkytOBnTAJxhRyqSyAOAGwbPcgt&sign=e52f55a9e81fcc348bb2f55be2510fa7&ext=loIlygDJaH%2BCnLiArEIMXmgFaQp0LY1ig3NB2OU7kPrBRHZzSs4XL6PutLLkO4028HWl4PCHNi%2BUJ32OWmWz%2B73hA7UlGJpO%2BCYRT%2FJx9xMgua9I6na51bAaXfjGxZaf7yfGYcvAcas12%2BE%2FqtbasbDv3jryoeqoxBZYnrGwPwFpvVrwHi7H4j7R3alBeaMv76uP7N98RQIMB3VtCGANY9Tom2xhJ40ti4tK%2FSeP%2FmgxicRhNei0H7%2Bu7v94dyEp"
-    ></video>
-    <button @click="aaa">全屏</button>
+    <view class="title">
+      <view class="tag" v-for="(item, index) in title" :key="index" @tap="currentIndex = index" :class="{active: currentIndex === index}">{{item}}</view>
+    </view>
+    <swiper class="swiper-box"
+      :duration="200"
+      :current="currentIndex"
+      @change="swChange"
+    >
+      <swiper-item class="swiper-item">
+        <view class="friend">
+          <view>暂时没有更多了</view>
+        </view>
+      </swiper-item>
+      <swiper-item class="swiper-item">
+        <view class="dynamic">
+          <view>暂无朋友动态</view>
+          <view class="find">快去寻找更多朋友吧</view>
+        </view>
+      </swiper-item>
+    </swiper>
   </view>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      title: ['朋友', '动态'],
+      currentIndex: 1,
+    };
   },
   mounted() {
-    this.currentVdo = uni.createVideoContext("vdo");
-    // console.log(this.currentVdo);
   },
   methods: {
-    aaa() {
-      setTimeout(() => {
-        this.currentVdo.play();
-        this.currentVdo.requestFullScreen();
-      }, 1000);
-    },
+    swChange(e) {
+      this.currentIndex = e.detail.current
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "../../../styles/variables.scss";
 .friend-tabbar {
+  background-color: $blackBg;
   height: 100%;
-  #vdo {
+  color: #e9e9e9;
+  .title {
+    position: absolute;
     width: 100%;
+    top: 40rpx;
+    display: flex;
+    justify-content: center;
+    .tag {
+      font-weight: bold;
+      font-size: 36rpx;
+      width: 200rpx;
+      text-align: center;
+      color: #cfcfcf;
+      &.active {
+        color: #fff;
+      }
+    }
   }
-  .fullH {
+  .swiper-box {
     height: 100%;
+    .swiper-item {
+      height: 100%;
+      .friend, .dynamic {
+        padding-top: 260rpx;
+        text-align: center;
+      }
+      .dynamic {
+        .find {
+          margin-top: 30rpx;
+          color: grey;
+        }
+      }
+    }
   }
 }
+
 </style>

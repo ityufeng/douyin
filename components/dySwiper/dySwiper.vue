@@ -198,7 +198,7 @@ export default {
         // });
         let res = null;
         if (this.test) {
-          console.log('用旧的数据')
+          console.log('用旧的数据, 频繁使用api接口会被限制')
           res = vdoArr;
         } else {
           console.log('获取新数据')
