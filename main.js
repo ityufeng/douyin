@@ -8,11 +8,7 @@ import loading from './components/loading/loading.vue'
 Vue.component('loading', loading)
 
 Vue.prototype.$loading = (status) => {
-  if (status) {
-    store.commit('changeLoading', status)
-  } else {
-    store.commit('changeLoading')
-  }
+  store.commit('changeLoading', status)
 }
 
 Vue.config.productionTip = false

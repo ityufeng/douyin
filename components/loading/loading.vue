@@ -1,5 +1,6 @@
 <template>
-  <view class="loading" v-show="isLoading">
+  <view class="loading" v-if="isLoading">
+	<!-- 在微信开发者工具小程序里, 测试了v-show无效 -->
     <view class="circle blue"></view>
     <view class="circle red"></view>
   </view>

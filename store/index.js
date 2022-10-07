@@ -9,7 +9,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     changeLoading(state, status) {
-      state.loading = status || !state.loading
+      state.loading = status
     }
   }
 })

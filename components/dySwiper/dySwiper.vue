@@ -1,4 +1,5 @@
 <template>
+  <!-- 视频轮播 -->
   <swiper
     class="swiper-box"
     vertical
@@ -80,8 +81,9 @@ export default {
   name: "dySwiper",
   data() {
     return {
-      // test: false,
-      test: true,
+      test: false,
+      // 测试时不停请求会被封, 只能保存请求的数据, 用来测试
+      // test: true,
       vdoList: [],
       // 当前停留的轮播下标
       currentIndex: 0,
@@ -97,11 +99,12 @@ export default {
       vdoShow: false,
       // 播放状态, 根据这个显示 自定义播放按钮
       playing: false,
-      // swiper 不切换
+      // 阻止swiper切换, 例如在滑动查看视频的简介部分, 滑到底后继续滑动, swiper就会跟着手势移动, 所以查看简介时禁止swiper滑动
       doNotChange: false,
     };
   },
   computed: {
+    // 切换后只渲染这些下标里的内容
     showList() {
       return [this.currentIndex - 1, this.currentIndex, this.currentIndex + 1];
     },
@@ -116,6 +119,7 @@ export default {
     this.getVdoData();
   },
   filters: {
+    // 数值格式改变
     formatCount(val) {
       if(val>10000) {
         return (val / 10000).toFixed(1) + 'w'
@@ -125,12 +129,15 @@ export default {
     }
   },
   methods: {
+    // swiper 切换时
     swiperChange(e) {
       this.playing = false;
       this.vdoShow = false
       this.currentIndex = e.detail.current;
     },
+    // swiper 切换后动画结束
     animationEnd(e) {
+      // 滑动到最后一个, 继续加载新的数据
       if (this.currentIndex >= this.vdoList.length - 1) {
         if (!this.loading) {
           this.getVdoData();
@@ -159,6 +166,7 @@ export default {
         this.vdoShow = true
       }, 200)
     },
+    // 切换播放状态
     togglePlay(e) {
       this.updateVdo()
       if (this.playing) {
@@ -186,9 +194,11 @@ export default {
     vdoPause() {
       this.playing = false;
     },
+    // 重新获取当前轮播项里的video元素
     updateVdo() {
       this.currentVdo = uni.createVideoContext(`vdoPlayer${this.currentIndex}`, this);
     },
+    // 获取视频数据
     async getVdoData() {
       try {
         this.loading = true;
@@ -321,7 +331,7 @@ export default {
       .description {
         &::-webkit-scrollbar { width: 0px !important; }
         overflow-y: auto;
-        max-height: 200rpx;
+        max-height: 150rpx;
         color: #f1efef;
         font-size: 26rpx;
         .descript, .tag {

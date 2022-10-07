@@ -101,6 +101,22 @@ export default {
 					data: '04-25',
 					more: true
 				},
+				{
+					icon: require('../../../static/message/功能通知.png'),
+					title: '功能通知',
+					secTitle: '官方',
+					info: '假消息通用营销补贴到账消息',
+					data: '04-25',
+					more: true
+				},
+				{
+					icon: require('../../../static/message/功能通知.png'),
+					title: '功能通知',
+					secTitle: '官方',
+					info: '假消息通用营销补贴到账消息',
+					data: '04-25',
+					more: true
+				},
 			]
 		};
   },

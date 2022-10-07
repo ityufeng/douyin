@@ -1,7 +1,7 @@
 {
-    "name" : "抖音",
-    "appid" : "",
-    "description" : "",
+    "name" : "模仿抖音",
+    "appid" : "__UNI__2BD8CAA",
+    "description" : "简单模仿抖音界面",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
@@ -68,5 +68,11 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "h5" : {
+        "router" : {
+            "base" : "./"
+        },
+        "title" : "模仿抖音"
+    }
 }
